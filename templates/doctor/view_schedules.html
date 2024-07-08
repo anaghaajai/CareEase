@@ -1,0 +1,24 @@
+{% extends "doctor/doc_home.html" %}
+{% block body %}
+    <a href="/doc_add_schedule" class="btn btn-success"><i class="fa fa-plus"></i> Add Schedule</a>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>FROM TIME</td>
+        <td>TO TIME</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.from_time }}</td>
+        <td>{{ i.to_time }}</td>
+        <td><a href="/doc_delete_sched/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a> </td>
+        <td><a href="/doc_view_bookings/{{ i.id }}" class="btn btn-info">View Bookings</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

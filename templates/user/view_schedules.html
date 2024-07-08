@@ -1,0 +1,21 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>FROM TIME</td>
+        <td>TO TIME</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.from_time }}</td>
+        <td>{{ i.to_time }}</td>
+        <td><a href="/user_book_appointment/{{ i.id }}" class="btn btn-info" onclick="return confirm('Are you sure?')">Book Appointment</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

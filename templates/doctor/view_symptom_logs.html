@@ -1,0 +1,21 @@
+{% extends "doctor/doc_home.html" %}
+{% block body %}
+<img src="{{ path }}" />
+    <br><br><br>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>SYMPTOM</td>
+        <td>LEVEL</td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.SYMPTOM_OPTION.SYMPTOMS.symptom_name }}</td>
+        <td>{{ i.SYMPTOM_OPTION.option_name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

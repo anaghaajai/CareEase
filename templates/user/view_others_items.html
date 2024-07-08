@@ -1,0 +1,23 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>TITLE</td>
+        <td>DESCRIPTION</td>
+        <td>IMAGE</td>
+        <td>OWNER INFO</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.title }}</td>
+        <td>{{ i.description }}</td>
+        <td><img src="{{ i.image }}" height="100" width="100" /></td>
+        <td>{{ i.USER.user_name }}<BR>{{ i.USER.phone }}</td>
+        <td><a href="/user_send_request/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Send Request</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+
+<div id="form2" >
+    <form method="post" action="/create_profile#pred">
+        <h3  align="center" style="width: 700px">Nutrients you need : <b>{{ data }}</b></h3>
+    <br>
+        <table class="table table-bordered" align="center" style="width: 700px">
+        <tr>
+            <td>Diet You Prefer</td>
+            <td>
+                <select class="form-control" name="diet">
+                    <option value="vegan_diet">Vegan Diet</option>
+                    <option value="high_protien_diet">High Protein Diet</option>
+                    <option value="type_a_diet">Type A Diet</option>
+                    <option value="type_o_diet">Type O Diet</option>
+                    <option value="paleo_diet">Paleo Diet</option>
+                    <option value="omni_diet">Omni Diet</option>
+                    <option value="low_sodium_diet">Low Sodium Diet</option>
+                    <option value="low_fat_diet">Low Fat Diet</option>
+                    <option value="gluten_free_diet">Gluten Free</option>
+                    <option value="high_fiber_diet">High Fiber</option>
+                    <option value="hormone_diet">Hormone Diet</option>
+                    <option value="Mediterranean_diet">Mediterranean Diet</option>
+                    <option value="low_carb_diet">A Low Carb Diet</option>
+                    <option value="alkaline_diet">Alkaline Diet</option>
+                    <option value="ketogenic_diet">Ketogenic Diet</option>
+                    <option value="dash_diet">Dash Diet</option>
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Do You Suffer From Any Disease</td>
+            <td>
+                <select class="form-control" name="disease">
+                    <option value="heart_disease">Heart Disease</option>
+                    <option value="diabeties">Diabetes</option>
+                    <option value="cancer">Cancer</option>
+                    <option value="rickets">Rickets(vitamin D)</option>
+                    <option value="kidney_disease">Kidney Problems</option>
+                    <option value="pregnancy">Pregnancy</option>
+                    <option value="scurvy">Scurvy(vitamin C)</option>
+                    <option value="anemia">Anemia(iron)</option>
+                    <option value="goitre">Goitre(Iodine)</option>
+                    <option value="eye_disease">Eye Problem(vitamin A)</option>
+                    <option value="obesity">Obesity</option>
+                    <option value="hypertension">Hypertension</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Nutrients You Prefer</td>
+            <td>
+                <select class="form-control" name="nutrient">
+                    <option value="protien">Protien</option>
+                    <option value="calcium">Calcium</option>
+                    <option value="carbohydrates">Carbohydrates</option>
+                    <option value="vitamin_a">Vitamin A</option>
+                    <option value="vitamin_c">Vitamin C</option>
+                    <option value="vitamin_d">vitamin D</option>
+                    <option value="vitamin_e">Vitamin E</option>
+                    <option value="magnesium">Magnesium</option>
+                    <option value="fiber">Fiber</option>
+                    <option value="sodium">Sodium</option>
+                    <option value="potassium">Potassium</option>
+                    <option value="iron">Iron</option>
+                    <option value="manganese">Manganese</option>
+                    <option value="phosphorus">Phosphorus</option>
+                    <option value="iodine">Iodine</option>
+                    <option value="chloride">Chloride</option>
+                    <option value="selenium">Selenium</option>
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Food You Prefer</td>
+            <td>
+                <select class="form-control" name="food">
+                    <option value="veg">Veg</option>
+                    <option value="non-veg">Non-Veg</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Favorite Food</td>
+            <td>
+                <input type="text" required name="favfood" class="form-control" id="basic-url">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input id="sub_btn" class="btn btn-success form-control" type="submit" text="submit">
+            </td>
+        </tr>
+    </table>
+        <br><br>
+        <br><br>
+        {% if data %}
+        <div id="pred">
+            <h2 class="text-success">PREDICTED MEALS</h2>
+            <table class="table table-bordered">
+            <tr style="color: #fff; background: #000;">
+                <td>MEAL NAME</td>
+                <td>TYPE</td>
+                <td>INGREDIENTS</td>
+            </tr>
+                {% for i in data %}
+                    <tr>
+                        {% for j in i %}
+                            <td>{{ j }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+    </form>
+
+
+
+
+
+
+</div>
+
+{% endblock %}

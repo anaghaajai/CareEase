@@ -1,0 +1,28 @@
+{% extends "doctor/doc_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>TOKEN</td>
+        <td>PATIENT NAME</td>
+        <td>EMAIL</td>
+        <td>PHONE</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.token }}</td>
+        <td>{{ i.USER.user_name }}</td>
+        <td>{{ i.USER.email }}</td>
+        <td>{{ i.USER.phone }}</td>
+        <td><a href="{{ i.USER.certificate }}" class="btn btn-info" target="_blank">View certificate</a> <br><br>
+            <a href="/doc_view_symptom_logs/{{ i.USER.id }}" class="btn btn-info">Symptom Logs</a> </td>
+        <td><a href="/doc_add_prescriptions/{{ i.id }}" class="btn btn-info">Prescriptions</a>
+            <br><br><a href="/doc_view_nutrient_list/{{ i.USER.id }}" class="btn btn-info">Nutrients</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

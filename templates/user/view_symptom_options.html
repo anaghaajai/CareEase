@@ -1,0 +1,18 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>SYMPTOM LEVEL</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.option_name }}</td>
+        <td><a href="/user_add_level/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-success">Add to logs</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

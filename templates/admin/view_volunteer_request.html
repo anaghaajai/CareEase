@@ -1,0 +1,24 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>USER NAME</td>
+        <td>PHONE</td>
+        <td>ADDRESS</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.USER.user_name }}</td>
+        <td>{{ i.USER.phone }}</td>
+        <td>{{ i.USER.place }}<br>{{ i.USER.post }}<br>{{ i.USER.pin }}</td>
+        <td><a href="/admin_allocate_vol/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-success">Allocate</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

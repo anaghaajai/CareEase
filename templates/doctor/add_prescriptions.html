@@ -1,0 +1,45 @@
+{% extends "doctor/doc_home.html" %}
+{% block body %}
+    <form method="post" action="/doc_add_prescription_post/{{ id }}">
+    {% csrf_token %}
+    <table class="table table-bordered" style="width: 500px;" align="center">
+        <tr>
+            <td>Medicine</td>
+            <td>
+                <select name="select" class="form-control">
+                    {% for i in data %}
+                        <option value="{{ i.id }}">{{ i.med_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Dosage</td>
+            <td><input type="text" name="t1" class="form-control" required /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="ADD" class="btn btn-success" />
+            </td>
+        </tr>
+    </table>
+    </form>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>MEDICINE NAME</td>
+        <td>DESCRIPTION</td>
+        <td>DOSAGE</td>
+        <td></td>
+    </tr>
+    {% for i in data2 %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.MEDICINE.med_name }}</td>
+        <td>{{ i.MEDICINE.description }}</td>
+        <td>{{ i.dosage }}</td>
+        <td><a href="/doc_delete_prescription/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

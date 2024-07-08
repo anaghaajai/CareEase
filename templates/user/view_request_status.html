@@ -1,0 +1,23 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>ITEM IMAGE</td>
+        <td>TITLE</td>
+        <td>DESCRIPTION</td>
+        <td>OWNER INFO</td>
+        <td>STATUS</td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td><img src="{{ i.ITEM.image }}" height="100" width="100" /></td>
+        <td>{{ i.ITEM.title }}</td>
+        <td>{{ i.ITEM.description }}</td>
+        <td>{{ i.ITEM.USER.user_name }}<br>{{ i.ITEM.USER.phone }}</td>
+        <td>{{ i.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

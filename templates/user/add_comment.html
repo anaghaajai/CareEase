@@ -1,0 +1,49 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<form method="post" action="/user_add_comment_post/{{ id }}" enctype="multipart/form-data">
+{% csrf_token %}
+<table class="table table-bordered mb-4" style="width: 500px;" align="center">
+    <tr>
+        <td><input type="text" name="t1" required class="form-control" placeholder="Your comment" /></td>
+        <td><input type="submit" value="Send" class="btn btn-success"></td>
+    </tr>
+</table>
+<br>
+{% for i in data %}
+<center>
+    <div class="card px-3 pt-3" style="max-width: 32rem" >
+  <!-- News block -->
+  <div>
+
+    <!-- Article data -->
+    <div class="row mb-3">
+      <div class="col-6">
+        <span class="text-info">
+          <i class="fa fa-user"></i>
+          {{ i.USER.user_name }}
+        </span>
+      </div>
+
+      <div class="col-6 text-end">
+        <i class="fa fa-calendar"> {{ i.date }}</i>
+      </div>
+
+
+    </div>
+<!-- Article title and description -->
+        <b class="text-dark">
+          <h5>{{ i.comment }}</h5>
+
+    {#      <p>#}
+    {#        {{ i.comment }}#}
+    {#      </p>#}
+        </b>
+
+
+  </div>
+    </div>
+    </center>
+{% endfor %}
+</form>
+
+{% endblock %}

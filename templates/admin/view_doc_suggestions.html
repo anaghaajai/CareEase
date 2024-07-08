@@ -1,0 +1,21 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>DOCTOR NAME</td>
+        <td>SUGGESTIONS</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.suggestion }}</td>
+        <td><a href="/adm_del_suggestions/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "doctor/doc_home.html" %}
+{% block body %}
+<form method="post" action="/doc_send_suggestion_post" enctype="multipart/form-data">
+{% csrf_token %}
+<table class="table table-bordered mb-4" style="width: 500px;" align="center">
+    <tr>
+        <td><input type="text" name="t1" required class="form-control" placeholder="Your suggestion" /></td>
+        <td><input type="submit" value="Send" class="btn btn-success"></td>
+    </tr>
+</table>
+<br>
+</form>
+
+{% endblock %}

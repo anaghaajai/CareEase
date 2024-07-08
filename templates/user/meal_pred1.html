@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/admin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+      <a href="/user_home" class="btn btn-info">Back</a>
+    <br><br>
+    <form method="post" action="/create_profile#pred">
+
+        <h3  align="center" style="width: 700px">Nutrients you need : <b>{{ data }}</b></h3>
+        <table class="table table-bordered" align="center">
+        <tr>
+            <td width="200">Diet You Prefer</td>
+            <td>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="diet" value="vegan_diet"/> Vegan Diet
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="diet" value="high_protien_diet"> High Protein Diet
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="diet" value="type_a_diet"> Type A Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="type_o_diet"> Type O Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="paleo_diet"> Paleo Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="omni_diet"> Omni Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="low_sodium_diet"> Low Sodium Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="low_fat_diet"> Low Fat Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="gluten_free_diet"> Gluten Free
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="high_fiber_diet"> High Fiber
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="hormone_diet"> Hormone Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="Mediterranean_diet"> Mediterranean Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="low_carb_diet"> A Low Carb Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="alkaline_diet"> Alkaline Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="ketogenic_diet"> Ketogenic Diet
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="diet" value="dash_diet"> Dash Diet
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Do You Suffer From Any Disease</td>
+            <td>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="disease" value="heart_disease"> Heart Disease
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="disease" value="diabeties"> Diabetes
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="disease" value="cancer"> Cancer
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="rickets"> Rickets(vitamin D)
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="kidney_disease"> Kidney Problems
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="pregnancy"> Pregnancy
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="scurvy"> Scurvy(vitamin C)
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="anemia"> Anemia(iron)
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="goitre"> Goitre(Iodine)
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="eye_disease"> Eye Problem(vitamin A)
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="obesity"> Obesity
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="disease" value="hypertension"> Hypertension
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Nutrients You Prefer</td>
+            <td>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="nutrient" value="protien"> Protien
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="nutrient" value="calcium"> Calcium
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="checkbox" name="nutrient" value="carbohydrates"> Carbohydrates
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="vitamin_a"> Vitamin A
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="vitamin_c"> Vitamin C
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="vitamin_d"> Vitamin D
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="vitamin_e"> Vitamin E
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="magnesium"> Magnesium
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="fiber"> Fiber
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="sodium"> Sodium
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="potassium"> Potassium
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="iron"> Iron
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="manganese"> Manganese
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="phosphorus"> Phosphorus
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="iodine"> Iodine
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="chloride"> Chloride
+                    </div>
+                    <div class="col-lg-4 mt-3">
+                        <input type="checkbox" name="nutrient" value="selenium"> Selenium
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Food You Prefer</td>
+            <td>
+                <select class="form-control" name="food">
+                    <option value="veg">Veg</option>
+                    <option value="non-veg">Non-Veg</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Favorite Food</td>
+            <td>
+                <input type="text" required name="favfood" class="form-control" id="basic-url">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input id="sub_btn" class="btn btn-success form-control" type="submit" text="submit">
+            </td>
+        </tr>
+    </table>
+        <br><br>
+        <br><br>
+        {% if data %}
+        <div id="pred">
+            <h2 class="text-success">PREDICTED MEALS</h2>
+            <table class="table table-bordered">
+            <tr style="color: #fff; background: #000;">
+                <td>MEAL NAME</td>
+                <td>TYPE</td>
+                <td>INGREDIENTS</td>
+            </tr>
+                {% for i in data2 %}
+                    <tr>
+                        {% for j in i %}
+                            <td>{{ j }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+    </form>
+  </div>
+
+
+
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+</body>
+</html>

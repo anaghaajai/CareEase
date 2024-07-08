@@ -1,0 +1,18 @@
+{% extends "doctor/doc_home.html" %}
+{% block body %}
+    <a href="/doc_add_nutrient/{{ id }}" class="btn btn-success"><i class="fa fa-plus"></i> Add Nutrient</a>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>NUTRIENT NAME</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.nutrient }}</td>
+        <td><a href="/doc_delete_nutrients/{{ i.id }}/{{ id }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

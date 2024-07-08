@@ -1,0 +1,24 @@
+{% extends "volunteer/vol_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>USER NAME</td>
+        <td>PHONE</td>
+        <td>ADDRESS</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.REQUEST.date }}</td>
+        <td>{{ i.REQUEST.USER.user_name }}</td>
+        <td>{{ i.REQUEST.USER.phone }}</td>
+        <td>{{ i.REQUEST.USER.place }}<br>{{ i.REQUEST.USER.post }}<br>{{ i.REQUEST.USER.pin }}</td>
+        <td><a href="/vol_update_status/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-success">Update Status</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

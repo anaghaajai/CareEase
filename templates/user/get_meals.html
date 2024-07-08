@@ -1,0 +1,47 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<form method="post" action="/user_get_meals_post" enctype="multipart/form-data">
+{% csrf_token %}
+<table class="table table-bordered" style="width: 500px;" align="center">
+    <tr>
+        <td>Choose health condition</td>
+        <td>
+            <select class="form-control" name="radio">
+                <option value="general">General</option>
+                <option value="diabetes">Diabetes</option>
+                <option value="hypertension">Hypertension</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" class="btn btn-success" value="SUBMIT">
+        </td>
+    </tr>
+</table>
+
+{% if protein %}
+<h3 align="center">YOUR MEAL RECOMMENDATIONS</h3>
+    <table class="table table-bordered" align="center" style="width: 500px;">
+        <tr>
+            <td>Protein Options</td>
+            <td>{{ protein }}</td>
+        </tr>
+        <tr>
+            <td>Fat Options</td>
+            <td>{{ fat }}</td>
+        </tr>
+        <tr>
+            <td>Grain Options</td>
+            <td>{{ grain }}</td>
+        </tr>
+        <tr>
+            <td>Vegetable Options</td>
+            <td>{{ vegetables }}</td>
+        </tr>
+    </table>
+
+{% endif %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+    <a href="/admin_add_symp" class="btn btn-success"><i class="fa fa-plus"></i> Add Symptoms</a>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>SYMPTOM NAME</td>
+        <td>DETAILS</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.symptom_name }}</td>
+        <td>{{ i.details }}</td>
+        <td><a href="/admin_delete_symp/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a> </td>
+        <td><a href="/admin_view_symptom_options/{{ i.id }}" class="btn btn-info">Options</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

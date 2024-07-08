@@ -1,0 +1,26 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<form method="post" action="/user_add_items_post" enctype="multipart/form-data">
+{% csrf_token %}
+<table class="table table-bordered" style="width: 500px;" align="center">
+    <tr>
+        <td>Title</td>
+        <td><input type="text" name="t1" required class="form-control" /></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td><textarea rows="5" cols="45" name="t2" required class="form-control"></textarea></td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td><input type="file" name="f1" required class="form-control" /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" class="btn btn-success" value="ADD">
+        </td>
+    </tr>
+</table>
+</form>
+
+{% endblock %}

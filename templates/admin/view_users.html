@@ -1,0 +1,26 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>NAME</td>
+        <td>EMAIL</td>
+        <td>PHONE</td>
+        <td>PLACE</td>
+        <td>POST</td>
+        <td>PIN</td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.user_name }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.phone }}</td>
+        <td>{{ i.place }}</td>
+        <td>{{ i.post }}</td>
+        <td>{{ i.pin }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

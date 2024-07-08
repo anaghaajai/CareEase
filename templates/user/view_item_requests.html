@@ -1,0 +1,23 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>USER INFO</td>
+        <td>PHONE</td>
+        <td>CERTIFICATE</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.phone }}</td>
+        <td><a href="{{ i.cert }}" target="_blank">View certificate</a> </td>
+        <td><a href="/user_approve_request/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-success">Accept</a> </td>
+        <td><a href="/user_reject_request/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Decline</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

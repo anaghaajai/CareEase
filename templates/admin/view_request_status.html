@@ -1,0 +1,24 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>USER NAME</td>
+        <td>PHONE</td>
+        <td>VOLUNTEER DETAILS</td>
+        <td>STATUS</td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.REQUEST.date }}</td>
+        <td>{{ i.REQUEST.USER.user_name }}</td>
+        <td>{{ i.REQUEST.USER.phone }}</td>
+        <td>{{ i.VOLUNTEER.name }}<br>{{ i.VOLUNTEER.phone }}</td>
+        <td>{{ i.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

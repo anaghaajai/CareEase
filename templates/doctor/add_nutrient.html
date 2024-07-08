@@ -1,0 +1,155 @@
+{#{% extends "doctor/doc_home.html" %}#}
+{#{% block body %}#}
+{#    <form method="post" action="/doc_add_prescription_post/{{ id }}">#}
+{#    {% csrf_token %}#}
+{#    <h3 align="center">Choose nutrients needed</h3>#}
+{#    <div class="row mt-3">#}
+{#        <div class="col-lg-3">#}
+{#            <input type="checkbox" name="check" value="protien">Protien#}
+{#        </div>#}
+{#        <div class="col-lg-3">#}
+{#            <input type="checkbox" name="check" value="calcium">Calcium#}
+{#        </div>#}
+{#        <div class="col-lg-3">#}
+{#            <input type="checkbox" name="check" value="carbohydrates">Carbohydrates#}
+{#        </div>#}
+{#        <div class="col-lg-3 mt-3">#}
+{#            <input type="checkbox" name="check" value="vitamin_a">Vitamin A#}
+{#        </div>#}
+{#        <div class="col-lg-3 mt-3">#}
+{#            <input type="checkbox" name="check" value="vitamin_c">Vitamin C#}
+{#        </div>#}
+{#        <div class="col-lg-3 mt-3">#}
+{#            <input type="checkbox" name="check" value="vitamin_d">Vitamin D#}
+{#        </div>#}
+{#    </div>#}
+{#    </form>#}
+{#{% endblock %}#}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/admin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+      <a href="/doc_view_nutrient_list/{{ id }}" class="btn btn-info">Back</a>
+    <br><br>
+    <form action="/doc_add_nutrient_post/{{ id }}" method="POST">
+
+    {% csrf_token %}
+    <h3 align="center">Choose nutrients needed</h3>
+    <div class="row mt-3">
+        <div class="col-lg-3">
+            <input type="checkbox" name="check" value="protien"> Protien
+        </div>
+        <div class="col-lg-3">
+            <input type="checkbox" name="check" value="calcium"> Calcium
+        </div>
+        <div class="col-lg-3">
+            <input type="checkbox" name="check" value="carbohydrates"> Carbohydrates
+        </div>
+        <div class="col-lg-3">
+            <input type="checkbox" name="check" value="vitamin_a"> Vitamin A
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="vitamin_c"> Vitamin C
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="vitamin_d"> Vitamin D
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="vitamin_e"> Vitamin E
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="magnesium"> Magnesium
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="fiber"> Fiber
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="sodium"> Sodium
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="potassium"> Potassium
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="iron"> Iron
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="manganese"> Manganese
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="phosphorus"> Phosphorus
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="iodine"> Iodine
+        </div>
+        <div class="col-lg-3 mt-3">
+            <input type="checkbox" name="check" value="chloride"> Chloride
+        </div>
+    </div>
+      <button type="submit" class="mt-3">ADD</button>
+    </form>
+  </div>
+
+
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+
+    <form method="post" action="/admin_allocate_vol_post/{{ id }}" >
+    {% csrf_token %}
+    <table class="table table-bordered" style="width: 500px;" align="center">
+        <tr>
+            <td>Volunteer Name</td>
+            <td><select name="select" class="form-control">
+                {% for i in data %}
+                    <option value="{{ i.id }}">{{ i.name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="ALLOCATE" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

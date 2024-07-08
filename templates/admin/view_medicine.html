@@ -1,0 +1,20 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+    <a href="/admin_add_med" class="btn btn-success"><i class="fa fa-plus"></i> Add medicine</a>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>MEDICINE NAME</td>
+        <td>DESCRIPTION</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.med_name }}</td>
+        <td>{{ i.description }}</td>
+        <td><a href="/admin_delete_med/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

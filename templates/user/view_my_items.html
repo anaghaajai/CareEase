@@ -1,0 +1,24 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+<a href="/user_add_items" class="btn btn-success"><i class="fa fa-plus"></i> Add Items</a>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>TITLE</td>
+        <td>DESCRIPTION</td>
+        <td>IMAGE</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.title }}</td>
+        <td>{{ i.description }}</td>
+        <td><img src="{{ i.image }}" height="100" width="100" /></td>
+        <td><a href="/user_delete_items/{{ i.id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a> </td>
+        <td><a href="/user_view_request/{{ i.id }}" class="btn btn-danger">View Requests</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

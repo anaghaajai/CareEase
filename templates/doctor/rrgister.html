@@ -1,0 +1,35 @@
+
+    <form method="post" action="/reg_post" >
+    {% csrf_token %}
+    <table class="table table-bordered" style="width: 500px;" align="center">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="t1" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="t2" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="t3" pattern="[6789][0-9]{9}" maxlength="10" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>Experience</td>
+            <td><input type="text" name="t4" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>Specialization</td>
+            <td><input type="text" name="t5" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="t6" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="REGISTER" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+    </form>

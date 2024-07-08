@@ -1,0 +1,177 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+
+    <style>
+          /* Common style for chat messages */
+        .chat-message {
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            max-width: 70%; /* Limiting message width */
+            word-wrap: break-word;
+        }
+
+        /* Style for user messages */
+        .user-message {
+            background-color: #bae3d7;
+            color: black;
+            float: left;
+        }
+
+        /* Style for trainer messages */
+        .trainer-message {
+            background-color: #b73770;
+            color: white;
+            float: right;
+        }
+
+        /* Clearfix to contain floated elements */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style for the chat input section */
+        .chat-input {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style for the chat button */
+        #chat {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #chat:hover {
+            background-color: #45a049;
+        }
+
+        /* Style for the chat input field */
+        #e {
+            padding: 12px;
+            width: calc(100% - 100px); /* Adjusting input width */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        #e:focus {
+            border-color: #4CAF50;
+        }
+    </style>
+<form action="" method="post">
+<table id="t1" class="container" align="center" >
+  </table>
+    <p></p>
+    <table id="t3" align="center"></table>
+    <table id="t4"  align="center" class="table table-borderless"></table><p></p>
+    <table id="t2" style="width: 500px;" align="center">
+        <tr>
+            <td>
+        <input type="hidden" id="v"/></td>
+          <td><input type="hidden" id="h"/></td>
+          <td><input type="hidden" name="uid" id="u" value="{{ u }}"/></td>
+        <th><input type="text" name="e" id="e" class="form-control" /></th>
+      <th><input type="button" name="chat" id="chat" value="Send" class="btn btn-success"/></th>
+      <th><input type="button" name="clr" id="clr" value="Clear chat" class="btn btn-success"/></th>
+            </tr>
+{#    </div>#}
+    </table>
+
+</form>
+
+<script type="text/javascript" src="/static/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function abc() {
+            $.ajax({
+            url: '/chatbot_view_chat',
+            type: 'post',
+            success: function (res) {
+                var rid=$("#u").val();
+                  a = res;
+                  b = a.status;
+                  if (b === "ok") {
+                      s = a.data;
+                      d = a.id;
+                      var len = s.length;
+                      $("#t4").text("");
+                        for (i = 0; i <= len; i++) {
+                            x = s[i];
+                            s_id = x.type;
+                            msg = x.message;
+                            if (s_id === 'user') {
+       $("#t4").append('<div class="trainer-message chat-message">' + msg + '</div><div class="clearfix"></div>');
+
+                            }
+                            if (s_id === 'chatbot') {
+
+                                $("#t4").append('<div class="user-message chat-message">' + msg + '</div><div class="clearfix"></div>');
+                                }
+
+                        }
+                    }
+
+            },
+
+            error: function (err) {
+                bb = jQuery.parseJSON(err)
+                {#alert("error")#}
+
+            }
+        });
+
+        }
+        aa=setInterval(abc,1000)
+    });
+
+$("#chat").click(function () {
+    var k = $("#h").val()
+    var d = $("#e").val()
+    $.ajax({
+        url: '/chatbot_add_chat',
+        type: 'POST',
+        data: {n: k, m: d},
+        success: function (res) {
+
+            result = res.stattus
+            $("#t4").empty();
+
+        },
+        error: function (err) {
+            bb = jQuery.parseJSON(err)
+        }
+
+    });
+$("#e").val("");
+
+$("#clr").click(function () {
+    $.ajax({
+        url: '/chatbot_delete_chat',
+        type: 'POST',
+        success: function (res) {
+
+            result = res.stattus
+
+        },
+        error: function (err) {
+            bb = jQuery.parseJSON(err)
+        }
+
+    });
+});
+});
+
+    </script>
+
+{% endblock %}

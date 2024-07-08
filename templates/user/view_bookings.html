@@ -1,0 +1,24 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DATE</td>
+        <td>DOCTOR NAME</td>
+        <td>SCHEDULE</td>
+        <td>TOKEN</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.SCHEDULE.DOCTOR.name }}<br>{{ i.SCHEDULE.DOCTOR.specialization }}<br>{{ i.SCHEDULE.DOCTOR.phone }}</td>
+        <td>{{ i.SCHEDULE.from_time }} - {{ i.SCHEDULE.to_time }}</td>
+        <td>{{ i.token }}</td>
+        <td><a href="/user_view_prescriptions/{{ i.id }}" class="btn btn-info">Prescriptions</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "admin/admin_home.html" %}
+{% block body %}
+   <form method="post" action="/admin_add_options/{{ id }}" >
+   {% csrf_token %}
+   <table class="table table-bordered" align="center" style="width: 500px;">
+       <tr>
+           <td>Level</td>
+           <td><input type="text" name="t1"  class="form-control" required/></td>
+       </tr>
+       <tr>
+           <td colspan="2" align="center">
+               <input type="submit" value="ADD">
+           </td>
+       </tr>
+   </table>
+   </form>
+    <br>
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>SYMPTOM LEVEL</td>
+        <td></td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.option_name }}</td>
+        <td><a href="/admin_delete_symptom_options/{{ i.id }}/{{ id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

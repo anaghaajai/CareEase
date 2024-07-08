@@ -1,0 +1,44 @@
+{% extends "user/user_home.html" %}
+{% block body %}
+
+    <form method="post" action="/user_profile_post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered" style="width: 500px;" align="center">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" class="form-control" value="{{ data.user_name }}" required name="name"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" class="form-control" value="{{ data.email }}" required name="email"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" pattern="[6789][0-9]{9}" maxlength="10" class="form-control" value="{{ data.phone }}" required name="phone"></td>
+        </tr>
+        <tr>
+            <td>Place</td>
+            <td><input type="text" class="form-control" value="{{ data.place }}" required name="place"></td>
+        </tr>
+        <tr>
+            <td>Post</td>
+            <td><input type="text" class="form-control" value="{{ data.post }}" required name="post"></td>
+        </tr>
+        <tr>
+            <td>Pin</td>
+            <td><input type="text" class="form-control" pattern="[6][0-9]{5}" maxlength="6" value="{{ data.pin }}" required name="pin"></td>
+        </tr>
+        <tr>
+            <td>Medical certificate</td>
+            <td>
+                <a href="{{ data.certificate }}">View file</a><br>
+                <input type="file" class="form-control" name="file" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Update" class="btn btn-success" />
+            </td>
+        </tr>
+    </table>
+    </form>
+{% endblock %}
